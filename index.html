@@ -16,13 +16,13 @@
     <nav class="topnav">
         <a class="active" href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#courses" class="no-active">Courses</a>
+        <a href="#courses">Courses</a>
         <a href="#play-learn">Play & Learn</a>
         <a href="#watch-learn">Watch & Learn</a>
     </nav>
 </header>
 
-<section class="hero">
+<section class="hero" id="home">
     <div class="hero-text">
         <h1>Learn Coding Online,</h1>
         <h1>the Fun Way 🚀</h1>
@@ -39,37 +39,122 @@
     </div>
 </section>
 
+<!-- COURSES -->
 <section class="courses" id="courses">
     <h2>Our Courses</h2>
     <p class="courses-subtitle">
         Choose a fun and interactive way to learn coding
     </p>
 
-    <div class="courses-grid">
-        <div class="course-card">
-            <img src="ai.jpg" alt="Scratch Course">
-            <h3>Scratch Programming</h3>
-            <p>Belajar logika coding lewat game dan animasi.</p>
+    <!-- AUTO GENERATED -->
+    <div class="courses-grid" id="coursesGrid"></div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+    <h2>About FunForgeID</h2>
+    <p class="about-subtitle">
+        Learn coding in a fun, creative, and interactive way
+    </p>
+
+    <div class="about-grid">
+        <div class="about-card">
+            <img src="ai.jpg" alt="Instructor">
+            <h3>Our Instructor</h3>
+            <p>
+                Instructor berpengalaman dalam mengajar coding anak dan remaja,
+                mulai dari Scratch, game development, hingga web programming.
+            </p>
         </div>
 
-        <div class="course-card">
-            <img src="ai.jpg" alt="Web Development">
-            <h3>Web Development</h3>
-            <p>HTML, CSS, dan JavaScript untuk pemula.</p>
+        <div class="about-card">
+            <img src="ai.jpg" alt="Learning Method">
+            <h3>Learning Method</h3>
+            <p>
+                Metode belajar berbasis project, game, dan praktik langsung
+                agar siswa cepat paham dan tidak bosan.
+            </p>
         </div>
 
-        <div class="course-card">
-            <img src="ai.jpg" alt="Game Development">
-            <h3>Game Development</h3>
-            <p>Membuat game seru sambil belajar coding.</p>
+        <div class="about-card">
+            <img src="ai.jpg" alt="Vision">
+            <h3>Our Vision</h3>
+            <p>
+                Membentuk generasi muda yang kreatif, logis,
+                dan siap menghadapi dunia teknologi masa depan.
+            </p>
         </div>
     </div>
 </section>
-<section class="about" id="about">
-<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1></section>
+        <!-- BRAND -->
+        <div class="footer-col brand">
+            <img src="FunFoot.png" alt="FunForgeID">
+            <p>
+                FunForgeID adalah platform belajar coding online
+                untuk anak dan remaja dengan metode fun,
+                interaktif, dan berbasis project.
+            </p>
+        </div>
+
+        <!-- MENU -->
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="#home">Home</a>
+            <a href="#courses">Courses</a>
+            <a href="#about">About</a>
+            <a href="#watch-learn">Watch & Learn</a>
+        </div>
+
+        <!-- COURSES -->
+        <div class="footer-col">
+            <h4>Courses</h4>
+            <a href="scratch.html">Scratch Programming</a>
+            <a href="web.html">Web Development</a>
+            <a href="game.html">Game Development</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p>📧 funforgeid@gmail.com</p>
+            <p>📱 08xxxxxxxx</p>
+            <p>📍 Indonesia</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 FunForgeID. All Rights Reserved.
+    </div>
+</footer>
+
+
+
+<!-- DATA COURSE Pake Js-->
+<script src="courses.js"></script>
+
+<!-- GENERATOR -->
+<script>
+const grid = document.getElementById("coursesGrid");
+
+courses.forEach(course => {
+    grid.innerHTML += `
+        <a href="${course.link}" class="course-link">
+            <div class="course-card">
+                <img src="${course.image}" alt="${course.title}">
+                <h3>${course.title}</h3>
+                <p>${course.desc}</p>
+            </div>
+        </a>
+    `;
+});
+</script>
+
+
 </body>
 </html>
