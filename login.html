@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FunForgeID</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-branding">
+            <div class="branding-content">
+                <h1>Fun<span>Forge</span></h1>
+                <p>Siap untuk menempa kode pertamamu hari ini?</p>
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/men-working-on-laptop-illustration-download-in-svg-png-gif-formats--freelancer-office-business-pack-illustrations-5381657.png" alt="Coding Illustration" width="280">
+            </div>
+        </div>
+
+        <div class="login-box">
+            <div class="form-container">
+                <h2>Selamat Datang Kembali!</h2>
+                <p>Silakan masuk ke akun belajarmu</p>
+                
+                <form id="loginForm"> 
+                    <div class="input-group">
+                        <label for="username">Email atau Username</label>
+                        <input type="text" id="username" placeholder="Masukkan emailmu" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label><input type="checkbox"> Ingat saya</label>
+                        <a href="#">Lupa Password?</a>
+                    </div>
+
+                    <button type="submit" id="loginBtn" class="btn-login">Ayo Mulai!</button>
+                </form>
+
+                <p class="register-link">Belum punya akun? <a href="#">Daftar Sekarang</a></p>
+                <a href="index.html" class="back-home">← Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+</html>

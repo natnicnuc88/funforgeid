@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Belajar - FunForgeID</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS INTERNAL AGAR MUDAH DIKONTROL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            overflow: hidden; /* Mencegah scroll double di body */
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            height: 70px;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3436;
+            text-decoration: none;
+        }
+
+        .logo span { color: #FF8C00; }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-info span {
+            font-weight: 600;
+            color: #2d3436;
+        }
+
+        .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #FF8C00;
+        }
+
+        /* Layout Container */
+        .container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+
+        /* Sidebar Kanan */
+        .sidebar {
+            width: 350px;
+            background: #fff;
+            border-left: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #2d3436;
+        }
+
+        .curriculum-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #fdfdfd;
+            border: 1px solid #f1f1f1;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .item:hover { background: #fff5eb; border-color: #FF8C00; }
+        .item.active { background: #fff5eb; border-color: #FF8C00; }
+        
+        .item i { color: #FF8C00; margin-right: 15px; }
+        .item .text { flex: 1; font-size: 0.9rem; font-weight: 500; }
+        .item .durasi { font-size: 0.75rem; color: #b2bec3; }
+
+        /* Area Video (Kiri) */
+        .content-area {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            background: #f4f7f6;
+        }
+
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-desc {
+            margin-top: 25px;
+        }
+
+        .video-desc h2 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+
+        .video-desc p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-outline { background: #fff; border: 2px solid #FF8C00; color: #FF8C00; }
+        .btn-fill { background: #FF8C00; color: #fff; }
+        .btn-fill:hover { background: #e67e22; transform: translateY(-2px); }
+
+        .logout-btn {
+            margin-top: 20px;
+            text-align: center;
+            color: #ff4757;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Responsif Sederhana */
+        @media (max-width: 1024px) {
+            .container { flex-direction: column; height: auto; }
+            .sidebar { width: 100%; order: 2; border-left: none; border-top: 1px solid #eee; }
+            .content-area { order: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Fun<span>Forge</span></a>
+        <div class="user-info">
+            <span id="userNameDisplay">Forge Learner</span>
+            <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=FF8C00&color=fff" alt="Avatar">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-area">
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/mU6an7qyksc" allowfullscreen></iframe>
+            </div>
+            <div class="video-desc">
+                <h2 id="currentTitle">1. Selamat Datang di Dunia Coding!</h2>
+                <p>Halo Calon Programmer! Di video pertama ini, kita akan melihat serunya dunia coding dan kenapa FunForge adalah tempat terbaik untuk memulai petualanganmu.</p>
+                <div class="actions">
+                    <button class="btn btn-outline">Materi PDF</button>
+                    <button class="btn btn-fill">Selesai & Lanjut Materi</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Daftar Modul</h3>
+            <div class="curriculum-list">
+                <div class="item active">
+                    <i class="fas fa-play-circle"></i>
+                    <div class="text">1. Pengenalan Web</div>
+                    <div class="durasi">05:20</div>
+                </div>
+                <div class="item">
+                    <i class="fas fa-lock"></i>
+                    <div class="text">2. Dasar HTML & Struktur</div>
+                    <div class="durasi">12:10</div>
+                </div>
+                <div class="item">
+                    <i class="fas fa-lock"></i>
+                    <div class="text">3. Memberi Warna dengan CSS</div>
+                    <div class="durasi">15:45</div>
+                </div>
+                <div class="item">
+                    <i class="fas fa-lock"></i>
+                    <div class="text">4. Membuat Website Pertamamu</div>
+                    <div class="durasi">20:00</div>
+                </div>
+            </div>
+            <a href="#" onclick="logout()" class="logout-btn">Keluar dari Dashboard</a>
+        </aside>
+    </div>
+
+    <script>
+        // 1. Logika mengambil nama dari localStorage (Login)
+        window.onload = function() {
+            const savedName = localStorage.getItem('forgeUserName');
+            
+            if (savedName) {
+                // Tampilkan nama di header
+                document.getElementById('userNameDisplay').innerText = savedName;
+                // Update avatar otomatis sesuai inisial nama
+                document.getElementById('userAvatar').src = `https://ui-avatars.com/api/?name=${savedName}&background=FF8C00&color=fff`;
+            } else {
+                // Jika paksa masuk tanpa login, kembalikan ke login.html
+                alert("Kamu harus login dulu!");
+                window.location.href = "login.html";
+            }
+        };
+
+        // 2. Logika Logout
+        function logout() {
+            if(confirm("Yakin ingin keluar?")) {
+                localStorage.removeItem('forgeUserName');
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
