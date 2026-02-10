@@ -8,11 +8,14 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
 /* supaya konten tidak ketutup header */
 body {
     padding-top: 90px;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* ================= HEADER ================= */
@@ -22,12 +25,10 @@ body {
     left: 0;
     width: 100%;
     height: 90px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 50px;
+    padding: 0 5%;
     background: #fff;
     border-bottom: 3px solid #ddd;
     z-index: 1000;
@@ -35,22 +36,21 @@ body {
 
 /* LOGO */
 .logo img {
-    height: 200px;   /* pas dengan header 90px */
+    height: 60px; /* Diperkecil agar proporsional, sebelumnya 200px terlalu besar */
+    width: auto;
 }
 
 /* NAV */
+.topnav {
+    display: flex;
+}
+
 .topnav a {
-    margin-left: 30px;
+    margin-left: 20px;
     text-decoration: none;
     color: #000;
     font-size: 16px;
-    font-weight: 500;
-    position: relative;
-}
-
-/* Menu Course tanpa efek active */
-.topnav a.no-active::after {
-    display: none;
+    font-weight: 600;
 }
 
 /* ================= HERO ================= */
@@ -58,18 +58,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 40px 80px;
+    padding: 60px 5%;
     gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* HERO TEXT */
 .hero-text {
-    max-width: 50%;
+    flex: 1;
 }
 
 .hero-text h1 {
-    font-size: 48px;
+    font-size: clamp(2rem, 5vw, 3rem); /* Ukuran font fleksibel */
     font-weight: 800;
     line-height: 1.2;
 }
@@ -84,6 +84,9 @@ body {
 /* BUTTON */
 .hero-buttons {
     margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .btn {
@@ -92,39 +95,32 @@ body {
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    margin-right: 15px;
+    text-align: center;
 }
 
-.btn.primary {
-    background: #b6b4f6;
-    color: #000;
-}
+.btn.primary { background: #b6b4f6; color: #000; }
+.btn.secondary { background: #7ad3e0; color: #000; }
 
-.btn.secondary {
-    background: #7ad3e0;
-    color: #000;
-}
-
-/* HERO IMAGE */
 .hero-image {
-    max-width: 50%;
+    flex: 1;
     text-align: right;
 }
 
 .hero-image img {
     width: 100%;
     max-width: 450px;
+    height: auto;
 }
 
 /* ================= COURSES ================= */
 .courses {
-    padding: 80px;
+    padding: 60px 5%;
     background: #ff8a00;
     text-align: center;
 }
 
 .courses h2 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
     color: #fff;
 }
@@ -135,209 +131,137 @@ body {
     color: #fff;
 }
 
-/* GRID */
 .courses-grid {
-    margin-top: 50px;
+    margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* LINK */
-.course-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* CARD */
 .course-card {
     background: #fff;
     border-radius: 18px;
     padding: 20px;
     min-height: 340px;
-
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
-.course-card:hover {
-    transform: translateY(-6px);
-}
+.course-card:hover { transform: translateY(-6px); }
 
-/* IMAGE CARD */
 .course-card img {
     width: 100%;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
 }
 
-/* TEXT CARD */
-.course-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.course-card p {
-    font-size: 16px;
-    color: #555;
-}
-
 /* ================= ABOUT ================= */
 .about {
-    padding: 80px;
+    padding: 60px 5%;
     background: #fff;
     text-align: center;
 }
 
-.about h2 {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-
-.about-subtitle {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 50px;
-}
-
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-card {
     background: #f9f9f9;
-    border-radius: 18px;
     padding: 25px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.about-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 14px;
-    margin-bottom: 15px;
-}
-
-.about-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.about-card p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.6;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 /* ================= FOOTER ================= */
 .footer {
     background: #ff8a00;
     color: #fff;
-    padding: 60px 80px 20px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-brand img {
-    height: 60px;
-    margin-bottom: 10px;
-}
-
-.footer-brand p {
-    font-size: 16px;
-}
-
-.footer-links h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.footer-links a,
-.footer-links p {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 8px;
-    font-size: 15px;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 15px;
-    text-align: center;
-    font-size: 14px;
-}
-
-/* ================= FOOTER (EXTENDED) ================= */
-.footer {
-    background: #ff8a00;
-    color: #fff;
-    padding: 70px 80px 25px;
+    padding: 50px 5% 20px;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.footer-col h4 {
-    font-size: 18px;
-    margin-bottom: 18px;
-}
-
-.footer-col a,
-.footer-col p {
-    display: block;
-    font-size: 15px;
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.footer-col a:hover {
-    text-decoration: underline;
-}
-
-/* BRAND */
 .footer-col.brand img {
-    height: 200px;
+    height: 80px; /* Sebelumnya 200px terlalu besar untuk footer mobile */
     margin-bottom: 15px;
 }
 
-.footer-col.brand p {
-    font-size: 15px;
-    max-width: 300px;
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 20px;
+    text-align: center;
 }
 
-/* BOTTOM */
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.35);
-    padding-top: 15px;
-    text-align: center;
-    font-size: 14px;
+/* ================= MEDIA QUERIES (RESPONSIVE) ================= */
+
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    
+    .header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .topnav {
+        display: none; /* Disarankan pakai burger menu, tapi sementara kita sembunyikan atau buat flex-wrap */
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 30px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-image img {
+        max-width: 300px;
+    }
+
+    .courses, .about {
+        padding: 40px 20px;
+    }
+
+    .footer {
+        padding: 40px 20px 20px;
+        text-align: center;
+    }
+
+    .footer-col.brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
