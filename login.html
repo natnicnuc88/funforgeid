@@ -2,49 +2,59 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login - FunForgeID</title>
     <link rel="stylesheet" href="style-login.css">
+    <style>
+        /* Tambahkan CSS Responsif langsung di sini agar pasti teraplikasi */
+        @media (max-width: 768px) {
+            body { height: auto; padding: 20px 10px; }
+            .login-container { 
+                flex-direction: column; 
+                width: 100%; 
+                max-width: 400px;
+                height: auto;
+            }
+            .login-branding { 
+                height: 200px; /* Video pendek di atas */
+                padding: 20px;
+            }
+            .video-background { object-fit: cover; }
+            .login-branding h1 { font-size: 1.8rem; }
+            .login-box { padding: 30px 20px; }
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
         <div class="login-branding">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="video-bg.mp4" type="video/mp4">
+            </video>
             <div class="branding-content">
                 <h1>Fun<span>Forge</span></h1>
-                <p>Siap untuk menempa kode pertamamu hari ini?</p>
+                <p>Siap untuk menempa kode?</p>
             </div>
         </div>
 
         <div class="login-box">
             <div class="form-container">
-                <h2>Selamat Datang Kembali!</h2>
-                <p>Silakan masuk ke akun belajarmu</p>
-                
+                <h2>Masuk</h2>
                 <form id="loginForm"> 
                     <div class="input-group">
-                        <label for="username">Email atau Username</label>
-                        <input type="text" id="username" placeholder="Masukkan emailmu" required>
+                        <label>Email/Username</label>
+                        <input type="text" id="username" placeholder="Nama kamu" required>
                     </div>
                     <div class="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Masukkan password" required>
+                        <label>Password</label>
+                        <input type="password" placeholder="Password" required>
                     </div>
-                    
-                    <div class="form-options">
-                        <label><input type="checkbox"> Ingat saya</label>
-                        <a href="#">Lupa Password?</a>
-                    </div>
-
                     <button type="submit" id="loginBtn" class="btn-login">Ayo Mulai!</button>
                 </form>
-
-                <p class="register-link">Belum punya akun? <a href="#">Daftar Sekarang</a></p>
-                <a href="index.html" class="back-home">← Kembali ke Beranda</a>
+                <a href="index.html" class="back-home">← Kembali</a>
             </div>
         </div>
     </div>
-
     <script src="login-script.js"></script>
 </body>
-
 </html>
